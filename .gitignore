@@ -1,3 +1,6 @@
 models/*
 !models/.gitkeep
 src/__pycache__
+src/*.pkl
+src/twitterAPIkeys.json
+src/*.html
