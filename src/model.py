@@ -9,10 +9,10 @@ class BERTModel(nn.Module):
         super(BERTModel, self).__init__()
         self.bert = transformers.BertModel.from_pretrained(config.BERT_PATH)
 
-    def forward(self, ids, mask, token_type_ids, target_tags):
+    def forward(self, input_ids, token_type_ids, attention_mask):
         o1, _  =  self.bert(
-            ids,
-            attention_mask = mask,
-            token_type_ids = token_type_ids
+            input_ids = input_ids,
+            token_type_ids = token_type_ids,
+            attention_mask =  attention_mask
         )
         return o1

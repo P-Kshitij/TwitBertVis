@@ -1,6 +1,7 @@
 # Installations:
 pip install transformers
 pip install tweepy
+pip install bokeh
 
 # download BERT
 mkdir models/bert-base-uncased/
