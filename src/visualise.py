@@ -9,7 +9,7 @@ def visualise(tweet_df):
     x = tweet_df['x_coord'].values
     y = tweet_df['y_coord'].values
     fav_count = tweet_df['tweet_favorite_count'].values
-    sizes = 10*(1+fav_count/fav_count.max())
+    sizes = 10*(1+(fav_count-fav_count.min())/fav_count.max())
     desc = tweet_df['tweet_text'].values
 
     source = ColumnDataSource(data=dict(x=x, y=y, desc=desc, sizes = sizes))
@@ -24,5 +24,5 @@ def visualise(tweet_df):
     p.circle('x', 'y', size='sizes', source=source,
             fill_color=transform('y', mapper))
 
-    output_file('plot.html')
+    output_file('../output/plot.html')
     show(p)
